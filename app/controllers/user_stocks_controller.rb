@@ -26,6 +26,7 @@ class UserStocksController < ApplicationController
   def create
     #can acess params[:stock_id] because belongs_to :stock
     #if yes assign the user to that current stock
+    #In other words, if stock already exist then dupliate record will NOT be created
     if params[:stock_id].present?
       @user_stock = UserStock.new(user: current_user, stock_id: params[:stock_id])
     else
@@ -47,7 +48,7 @@ class UserStocksController < ApplicationController
     end
     respond_to do |format|
       if @user_stock.save
-        format.html { redirect_to my_portfolio_path notice: "Stock #{@user_stock.stock.ticker} was successfully added!" }
+        format.html { redirect_to my_portfolio_path, notice: "Stock #{@user_stock.stock.ticker} was successfully added!" }
         format.json { render :show, status: :created, location: @user_stock }
       else
         format.html { render :new }
