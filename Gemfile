@@ -26,14 +26,19 @@ gem 'devise'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 gem 'jquery-rails', '~> 4.3'
+#Stock quote
+gem 'stock_quote'
 
 gem 'twitter-bootstrap-rails'
 gem 'devise-bootstrap-views'
 
+gem 'byebug'
+gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.2'
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  #gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
